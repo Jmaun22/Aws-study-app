@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:desktop_window/desktop_window.dart';
 import 'screens/home.dart';
 import 'screens/quiz.dart';
+import 'screens/quiztype_selection.dart';
 
 import 'styles/color.dart';
 
@@ -37,15 +38,18 @@ class HomePage extends StatelessWidget {
       home: DefaultTabController(
         length: 2,
         child: Scaffold(
+       
           appBar: AppBar(
             backgroundColor: lsecondaryColor,
             bottom: const TabBar(
+                
               tabs: [
                 Tab(
                   icon: Icon(Icons.home),
                   text: 'Home',
                 ),
                 Tab(
+     
                   icon: Icon(Icons.question_mark),
                   text: 'Questions',
                 ),
@@ -55,7 +59,7 @@ class HomePage extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              Home(),
+              QuizSelectionPage(),
               Quizzler(),
             ],
           ),
