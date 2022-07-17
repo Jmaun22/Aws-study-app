@@ -10,6 +10,7 @@ import 'screens/quiztype_selection.dart';
 import 'styles/color.dart';
 import 'screens/flash_card.dart';
 import 'screens/true_false.dart';
+import 'screens/darg_drop.dart';
 
 void main() {
   setupWindow();
@@ -58,7 +59,7 @@ class HomePage extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              TrueFalse(),
+              ExampleDragAndDrop(),
               Quizzler(),
             ],
           ),
