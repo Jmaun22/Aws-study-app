@@ -61,6 +61,19 @@ class QuizLogic {
       _currentQuestion++;
     }
   }
+  // return question using question data
+
+  String getQuestionFront(int num) {
+
+    return _questionData[num].questionText;
+
+
+  }
+  // return the answer using index
+
+  String getQuestionBack(int num) {
+        return _questionData[num].questionAnswer;
+  }
 
 // returns the current quesiton
   int getCurrentQuestion() {

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:tcard/tcard.dart';
 import 'package:flash_card/flash_card.dart';
+import '../models/quiz_logic.dart';
+
+QuizLogic quizLogic = QuizLogic();
 
 List<Color> colors = [
   Colors.blue,
@@ -15,16 +18,22 @@ List<Color> colors = [
   Colors.brown,
   Colors.teal,
 ];
-
+// need to figure out how to make the index the length of the card that can be asked
 List<Widget> cards = List.generate(
   colors.length,
   (int index) {
     return FlashCard(
-        frontWidget: Container(child: Text('front')),
+        frontWidget: Container(
+            child: Text(   
+           quizLogic.getQuestionBack(index),
+            
+        )),
         height: 400,
         width: 300,
-        backWidget: Container(child: Text('back')));
-
+        backWidget: Container(
+            child: Text(
+          quizLogic.getQuestionFront(index),
+        ),),);
   },
 );
 
@@ -51,7 +60,10 @@ class _TCardPageState extends State<TCardPage> {
               onForward: (index, info) {
                 _index = index;
                 print(info.direction);
-                setState(() {});
+                setState(() {
+                   quizLogic.nextQuestion();
+                 
+                });
               },
               onBack: (index, info) {
                 _index = index;
@@ -73,7 +85,10 @@ class _TCardPageState extends State<TCardPage> {
                 ),
                 FlatButton(
                   onPressed: () {
+                    print(quizLogic.getCurrentQuestion());
+                   
                     _controller.forward();
+                    print(quizLogic.getQuestionText());
                   },
                   child: Text('Forward'),
                 ),
