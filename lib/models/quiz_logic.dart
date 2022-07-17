@@ -1,7 +1,11 @@
 import 'question.dart';
 
+import 'dart:math';
+
 class QuizLogic {
   int _currentQuestion = 0;
+  Random random = new Random();
+  int _randomNumber = 0;
 
   List<Question> _questionData = [
     Question(
@@ -56,6 +60,52 @@ class QuizLogic {
         'launching commands when machine is first starts'),
   ];
 
+  // true and false returns the correct answer or one of the choices
+
+  String getTrueFalseText() {
+    _randomNumber = random.nextInt(2);
+    print('$_randomNumber random');
+    String firstq = _questionData[_currentQuestion].firstquestionChoice;
+
+    String correctq = _questionData[_currentQuestion].questionAnswer;
+
+    if (_randomNumber == 1) {
+      return correctq;
+    } else {
+      return firstq;
+    }
+  }
+
+  // checking true and false questions
+
+  // need to figure out how to check true and false questions need to figure out
+
+// make a turnery at some point
+  bool checkTrueFalse(bool userChoice) {
+    print('random number in t/f checker ');
+
+    // bool checkAnswer = false;
+
+    // if(userChoice)
+
+    if (userChoice) {
+      if (_randomNumber == 1) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+       if (_randomNumber == 1) {
+        return false;
+      } else {
+        return true;
+      }
+
+
+ 
+    }
+  }
+
   void nextQuestion() {
     if (_currentQuestion < _questionData.length - 1) {
       _currentQuestion++;
@@ -64,15 +114,12 @@ class QuizLogic {
   // return question using question data
 
   String getQuestionFront(int num) {
-
     return _questionData[num].questionText;
-
-
   }
   // return the answer using index
 
   String getQuestionBack(int num) {
-        return _questionData[num].questionAnswer;
+    return _questionData[num].questionAnswer;
   }
 
 // returns the current quesiton
@@ -115,6 +162,7 @@ class QuizLogic {
       return false;
     }
   }
+
   void reset() {
     _currentQuestion = 0;
   }
