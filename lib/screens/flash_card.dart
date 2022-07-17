@@ -1,11 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 
 import 'package:tcard/tcard.dart';
-
-
-
+import 'package:flash_card/flash_card.dart';
 
 List<Color> colors = [
   Colors.blue,
@@ -23,16 +19,12 @@ List<Color> colors = [
 List<Widget> cards = List.generate(
   colors.length,
   (int index) {
-    return Container(
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: colors[index],
-      ),
-      child: Text(
-        '${index + 1}',
-        style: TextStyle(fontSize: 100.0, color: Colors.white),
-      ),
-    );
+    return FlashCard(
+        frontWidget: Container(child: Text('front')),
+        height: 400,
+        width: 300,
+        backWidget: Container(child: Text('back')));
+
   },
 );
 
