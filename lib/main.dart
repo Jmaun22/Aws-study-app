@@ -12,59 +12,108 @@ import 'screens/flash_card.dart';
 import 'screens/true_false.dart';
 import 'screens/darg_drop.dart';
 
-void main() {
-  setupWindow();
-  runApp(
-    MaterialApp(
-      home: HomePage(),
-    ),
-  );
-}
 
-const double windowWidth = 1024;
-const double windowHeight = 800;
 
-void setupWindow() {
-  if (kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
-    WidgetsFlutterBinding.ensureInitialized();
-    // setWindowTitle('Isolate Example');
-    DesktopWindow.setWindowSize(const Size(windowWidth, windowHeight));
-  }
-}
+void main() => runApp(const MyApp());
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  static const String _title = 'Aws Study';
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DefaultTabController(
-        length: 2,
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: lsecondaryColor,
-            bottom: const TabBar(
-              tabs: [
-                Tab(
-                  icon: Icon(Icons.home),
-                  text: 'Home',
-                ),
-                Tab(
-                  icon: Icon(Icons.question_mark),
-                  text: 'Questions',
-                ),
-              ],
-            ),
-            title: const Text('AWS Dev Quiz'),
+    return const MaterialApp(
+      title: _title,
+      home: MyStatefulWidget(),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: Settings',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Aws study'),
+      ),
+      body: MaterialApp( initialRoute: '/',
+         routes: {
+        '/': (context) => QuizSelectionPage(),
+        '/dragdrop': (context) => ExampleDragAndDrop(),
+        '/quiz': (context) => QuizPage(),
+         '/truefalse': (context) => TrueFalse(),
+         '/flashcards': (context) => TCardPage(),
+         }
+      ),
+
+  
+      
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            backgroundColor: Colors.red,
+             
+            
           ),
-          body: TabBarView(
-            children: [
-              ExampleDragAndDrop(),
-              Quizzler(),
-            ],
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            label: 'Business',
+            backgroundColor: Colors.green,
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'School',
+            backgroundColor: Colors.purple,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+            backgroundColor: Colors.pink,
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
       ),
     );
   }
 }
+

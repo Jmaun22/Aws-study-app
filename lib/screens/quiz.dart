@@ -10,7 +10,7 @@ class Quizzler extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: lprimaryColor,
+        backgroundColor: Colors.blue,
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -91,7 +91,10 @@ class _QuizPageState extends State<QuizPage> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
-                  color: Colors.white,
+                  color: lprimaryColor,
+                  decoration: TextDecoration.none
+             
+
                 ),
               ),
             ),
@@ -112,7 +115,7 @@ class _QuizPageState extends State<QuizPage> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20.0,
-                  color: Colors.white,
+                  color: lprimaryColor,
                 ),
               ),
             ),
@@ -131,7 +134,7 @@ class _QuizPageState extends State<QuizPage> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20.0,
-                  color: Colors.white,
+                  color: lprimaryColor,
                 ),
               ),
             ),
@@ -150,7 +153,7 @@ class _QuizPageState extends State<QuizPage> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20.0,
-                  color: Colors.white,
+                  color: lprimaryColor,
                 ),
               ),
             ),
@@ -169,7 +172,7 @@ class _QuizPageState extends State<QuizPage> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20.0,
-                  color: Colors.white,
+                  color: lprimaryColor,
                 ),
               ),
             ),

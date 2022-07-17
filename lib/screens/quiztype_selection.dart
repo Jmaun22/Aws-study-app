@@ -30,7 +30,9 @@ class _MyWidgetState extends State<QuizSelectionPage> {
                     cardChild: iconContent(
                         iconsymbol: FontAwesomeIcons.list,
                         icontext: 'MUTI CHOCIE'),
-                    tapOnIcon: () {},
+                    tapOnIcon: () {
+                            Navigator.pushNamed(context, '/quiz');
+                    },
                   ),
                 ),
                 Expanded(
@@ -39,7 +41,9 @@ class _MyWidgetState extends State<QuizSelectionPage> {
                     cardChild: iconContent(
                         iconsymbol: FontAwesomeIcons.checkDouble,
                         icontext: 'T/F'),
-                    tapOnIcon: () {},
+                    tapOnIcon: () {
+                            Navigator.pushNamed(context, '/truefalse');
+                    },
                   ),
                 ),
               ],
@@ -54,7 +58,9 @@ class _MyWidgetState extends State<QuizSelectionPage> {
                     cardChild: iconContent(
                         iconsymbol: FontAwesomeIcons.puzzlePiece,
                         icontext: 'MATCHING'),
-                    tapOnIcon: () {},
+                    tapOnIcon: () {
+                            Navigator.pushNamed(context, '/dragdrop');
+                    },
                   ),
                 ),
                 Expanded(
@@ -63,7 +69,9 @@ class _MyWidgetState extends State<QuizSelectionPage> {
                     cardChild: iconContent(
                         iconsymbol: FontAwesomeIcons.noteSticky,
                         icontext: 'LEARN'),
-                    tapOnIcon: () {},
+                    tapOnIcon: () {
+                            Navigator.pushNamed(context, '/flashcards');
+                    },
                   ),
                 ),
               ],
