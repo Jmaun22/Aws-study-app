@@ -40,6 +40,7 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   flash_card: ^0.0.7
   tcard: ^1.3.5
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:

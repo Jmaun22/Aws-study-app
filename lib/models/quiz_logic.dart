@@ -1,6 +1,7 @@
 import 'question.dart';
 
 import 'dart:math';
+import 'package:flutter/material.dart';
 
 class QuizLogic {
   int _currentQuestion = 0;
@@ -60,6 +61,17 @@ class QuizLogic {
         'launching commands when machine is first starts'),
   ];
 
+// Get the question text
+
+  List<String> getquestionText() {
+    List<String> questionTextItems = [];
+
+    for (int i = 0; i < 9; i++) {
+      var questiontext = _questionData[i].questionText;
+      questionTextItems.add(questiontext);
+    }
+    return questionTextItems;
+  }
   // true and false returns the correct answer or one of the choices
 
   String getTrueFalseText() {
@@ -95,14 +107,11 @@ class QuizLogic {
         return false;
       }
     } else {
-       if (_randomNumber == 1) {
+      if (_randomNumber == 1) {
         return false;
       } else {
         return true;
       }
-
-
- 
     }
   }
 
