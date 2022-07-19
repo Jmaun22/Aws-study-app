@@ -18,6 +18,9 @@ class _MyWidgetState extends State<QuizSelectionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
          backgroundColor: lprimaryColor,
+           appBar: AppBar(
+        title: const Text('Quiz Selection'),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[

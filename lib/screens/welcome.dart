@@ -52,6 +52,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: animation.value,
+        appBar: AppBar(
+        title: const Text('AWS STUDY'),
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
