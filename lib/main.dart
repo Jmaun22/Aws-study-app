@@ -11,8 +11,7 @@ import 'styles/color.dart';
 import 'screens/flash_card.dart';
 import 'screens/true_false.dart';
 import 'screens/darg_drop.dart';
-
-
+import 'screens/welcome.dart';
 
 void main() => runApp(const MyApp());
 
@@ -41,11 +40,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
+  static List<Widget> _widgetOptions = <Widget>[
+    new QuizSelectionPage(),
     Text(
       'Index 1: Business',
       style: optionStyle,
@@ -72,26 +68,20 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       appBar: AppBar(
         title: const Text('Aws study'),
       ),
-      body: MaterialApp( initialRoute: '/',
-         routes: {
-        '/': (context) => QuizSelectionPage(),
+      body: MaterialApp(initialRoute: '/', routes: {
+          '/': (context) => WelcomeScreen(),
+        // '/': (context) => QuizSelectionPage(),
         '/dragdrop': (context) => Matching(),
         '/quiz': (context) => QuizPage(),
-         '/truefalse': (context) => TrueFalse(),
-         '/flashcards': (context) => TCardPage(),
-         }
-      ),
-
-  
-      
+        '/truefalse': (context) => TrueFalse(),
+        '/flashcards': (context) => TCardPage(),
+      }),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
             backgroundColor: Colors.red,
-             
-            
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
@@ -116,4 +106,3 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
   }
 }
-
