@@ -9,6 +9,7 @@ import 'screens/darg_drop.dart';
 import 'screens/flash_card.dart';
 import 'screens/quiz.dart';
 import 'screens/results.dart';
+import 'screens/input_screen.dart';
 
 void main() => runApp(MaterialApp(
       home: BottomNavLayout(
@@ -35,7 +36,7 @@ void main() => runApp(MaterialApp(
                   },
                 ),
               ),
-          (_) => LineChartSample2(),
+          (_) => Input(),
         ],
         bottomNavigationBar: (currentIndex, onTap) => BottomNavigationBar(
           currentIndex: currentIndex,
