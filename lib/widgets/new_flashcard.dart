@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+
 class NewFlashCard extends StatefulWidget {
 
   final Function addTx;
@@ -14,47 +15,34 @@ class NewFlashCard extends StatefulWidget {
 class _NewFlashCardState extends State<NewFlashCard> {
   
   
-  final titleController = TextEditingController();
+  final termController = TextEditingController();
 
-  final amountController = TextEditingController();
-  static DateTime  _selectedDate = DateTime.now();
+  final definationController = TextEditingController();
+
 
 
   void submitData() {
-    if (amountController.text.isEmpty) {
+    if (termController.text.isEmpty) {
       return;
     }
-    final enteredTitle = titleController.text;
+    final enteredTerm = termController.text;
 
-    final enteredAmount = double.parse(amountController.text);
-    if (enteredTitle.isEmpty || enteredAmount <= 0 || _selectedDate == null) {
+    final enteredDefination = definationController.text;
+    if (enteredTerm.isEmpty || enteredDefination .isEmpty) {
       return;
     }
     widget.addTx(
-      enteredTitle,
-      enteredAmount,
-      _selectedDate,
+      enteredTerm,
+      enteredDefination,
+
+
+
     );
 
     Navigator.of(context).pop();
   }
 
-  void _presentDatePicker() {
-    showDatePicker(
-            context: context,
-            initialDate: DateTime.now(),
-            firstDate: DateTime(2019),
-            lastDate: DateTime.now())
-        .then((pickedDate) {
-      if (pickedDate == null) {
-        return;
-      }
-
-      setState(() {
-        _selectedDate = pickedDate;
-      });
-    });
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -66,36 +54,24 @@ class _NewFlashCardState extends State<NewFlashCard> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             TextField(
-              decoration: InputDecoration(labelText: 'Title'),
-              controller: titleController,
+              decoration: InputDecoration(labelText: 'Term'),
+              controller: termController,
               keyboardType: TextInputType.number,
               onSubmitted: (_) => submitData,
             ),
             Container(
               height: 50,
-              child: Row(
-                children: <Widget>[
-                  Text(
-                      _selectedDate == null
-                          ? 'No Date Chosen!'
-                          : 'Picked Date: ${DateFormat.yMd().format(_selectedDate)}',
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                  FlatButton(
-                      textColor: Theme.of(context).primaryColor,
-                      child: Text('Choose Date'),
-                      onPressed: _presentDatePicker),
-                ],
-              ),
+            
             ),
             TextField(
-              decoration: InputDecoration(labelText: 'Amount'),
-              controller: amountController,
+              decoration: InputDecoration(labelText: 'Defination'),
+              controller: definationController,
               onSubmitted: (_) => submitData,
             ),
             FlatButton(
               onPressed: submitData,
-              child: Text('Add Transaction'),
-              textColor: Colors.purple,
+              child: Text('Make Card'),
+              textColor: Colors.blue,
             )
           ],
         ),

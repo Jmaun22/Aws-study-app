@@ -11,7 +11,9 @@ import 'screens/quiz.dart';
 import 'screens/results.dart';
 import 'screens/input_screen.dart';
 
+
 void main() => runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
       home: BottomNavLayout(
         // The app's destinations
         pages: [

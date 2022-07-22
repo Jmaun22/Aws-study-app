@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 
 import '../models/flashcard.dart';
 
+
 class CardInput extends StatelessWidget {
   late final List<FlashCard> flashcards;
 
@@ -28,27 +29,39 @@ class CardInput extends StatelessWidget {
                       fit: BoxFit.cover,
                     ))
               ])
-            : ListView.builder(itemBuilder: (ctx, index) {
-                return Card(
-                  elevation: 7,
-                  child: Column(
+            : ListView.builder(
+                itemBuilder: (ctx, index) {
+                  return Card(
+                    elevation: 7,
+                    child: Column(children: <Widget>[
+                      TextFormField(
+                            decoration: const InputDecoration(
 
-                    children: <Widget> [
-                      TextField(
-                        decoration: InputDecoration(labelText: 'Term'),
-                      ), 
-                      TextField(
-                        decoration: InputDecoration(labelText: 'Defination'),
-                      ),
-                    ]
+    hintText: 'Type a term',
+    labelText: 'Term',
+  ),
+
+                        initialValue: flashcards[index].term
+                
+),
+ TextFormField(
+  decoration: const InputDecoration(
+
+    hintText: 'Type a def',
+    labelText: 'Definition',
+  ),
+                        initialValue: flashcards[index].def
+                
+),
+
 
                     
-                  ),
-
-
-
-                );
-              }, 
-              itemCount: flashcards.length,));
+                  
+                    
+                    ]),
+                  );
+                },
+                itemCount: flashcards.length,
+              ));
   }
 }

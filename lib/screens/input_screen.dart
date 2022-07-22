@@ -28,6 +28,10 @@ class _InputState extends State<Input> {
     // )
   ];
 
+  // List<FlashCard> get _recentFlashcards {
+  //   return 
+  // }
+
   void _addNewFlashcard(
     String txTerm,
     String txDef,
@@ -65,6 +69,7 @@ class _InputState extends State<Input> {
           children: <Widget>[
             Text('Create a Set'),
             CardInput(_flashcards),
+    
           ],
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
