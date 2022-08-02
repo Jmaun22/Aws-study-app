@@ -5,13 +5,16 @@ import 'package:flutter/src/widgets/framework.dart';
 import '../widgets/card_input.dart';
 import '../models/flashcard.dart';
 import '../widgets/new_flashcard.dart';
+import 'package:uuid/uuid.dart';
 
 class Input extends StatefulWidget {
+
   @override
   State<Input> createState() => _InputState();
 }
 
 class _InputState extends State<Input> {
+ 
   final List<FlashCard> _flashcards = [
     FlashCard(id: '1', term: 'super', def: 'amazing')
     // Transaction(
@@ -29,8 +32,9 @@ class _InputState extends State<Input> {
   ];
 
   // List<FlashCard> get _recentFlashcards {
-  //   return 
+  //   return
   // }
+
 
   void _addNewFlashcard(
     String txTerm,
@@ -41,6 +45,8 @@ class _InputState extends State<Input> {
 
     setState(() {
       _flashcards.add(newTx);
+
+
     });
   }
 
@@ -69,7 +75,6 @@ class _InputState extends State<Input> {
           children: <Widget>[
             Text('Create a Set'),
             CardInput(_flashcards),
-    
           ],
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
