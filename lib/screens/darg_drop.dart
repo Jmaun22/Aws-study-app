@@ -25,15 +25,19 @@ class _MatchingState extends State<Matching> {
                   children: <Widget>[
                     MatchingFlashCard(
                       backtext:    quizLogic.getQuestionBack(1),
+                      isFliped: false,
                     ),
                     MatchingFlashCard(
                       backtext:    quizLogic.getQuestionBack(2),
+                        isFliped: false,
                     ),
                     MatchingFlashCard(
                       backtext:    quizLogic.getQuestionBack(3),
+                        isFliped: false,
                     ),
                     MatchingFlashCard(
                       backtext:  quizLogic.getQuestionBack(4),
+                        isFliped: false,
                     ),
                   ],
                 ),
@@ -43,15 +47,19 @@ class _MatchingState extends State<Matching> {
                 children: <Widget>[
                   MatchingFlashCard(
                     backtext:  quizLogic.getQuestionBack(8),
+                      isFliped: false,
                   ),
                   MatchingFlashCard(
                     backtext:  quizLogic.getQuestionBack(5),
+                      isFliped: false,
                   ),
                   MatchingFlashCard(
                     backtext:  quizLogic.getQuestionBack(6),
+                      isFliped: false,
                   ),
                   MatchingFlashCard(
                     backtext:  quizLogic.getQuestionBack(7),
+                      isFliped: false,
                   ),
                 ],
               )),
@@ -60,15 +68,19 @@ class _MatchingState extends State<Matching> {
                 children: <Widget>[
                   MatchingFlashCard(
                     backtext:  quizLogic.getQuestionFront(8),
+                      isFliped: false,
                   ),
                   MatchingFlashCard(
                     backtext:  quizLogic.getQuestionFront(1),
+                      isFliped: false,
                   ),
                   MatchingFlashCard(
                     backtext: quizLogic.getQuestionFront(2),
+                      isFliped: false,
                   ),
                   MatchingFlashCard(
                     backtext:  quizLogic.getQuestionFront(3),
+                      isFliped: false,
                   ),
                 ],
               )),
@@ -77,15 +89,19 @@ class _MatchingState extends State<Matching> {
                 children: <Widget>[
                   MatchingFlashCard(
                     backtext:  quizLogic.getQuestionFront(4),
+                      isFliped: false,
                   ),
                   MatchingFlashCard(
                     backtext:  quizLogic.getQuestionFront(5),
+                      isFliped: false,
                   ),
                   MatchingFlashCard(
                     backtext:  quizLogic.getQuestionFront(6),
+                      isFliped: false,
                   ),
                   MatchingFlashCard(
                     backtext:  quizLogic.getQuestionFront(7),
+                      isFliped: false,
                   ),
                 ],
               )),

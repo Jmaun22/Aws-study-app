@@ -56,7 +56,7 @@ class _NewFlashCardState extends State<NewFlashCard> {
             TextField(
               decoration: InputDecoration(labelText: 'Term'),
               controller: termController,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               onSubmitted: (_) => submitData,
             ),
             Container(
